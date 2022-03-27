@@ -1,11 +1,11 @@
 import React from 'react'
-
-interface Props {}
+import Navigate from 'react-router-dom'
+import { AuthContext } from '../auth/Auth'
 
 function Privateroute({children}: {children: React.ReactNode}) {
-    const {currentUser}
+    const {currentUser} = React.useContext(AuthContext)
     return (    
-        
+        !!currentUser ? children : (<Navigate to={'/signin'}/>)
     )
 }
 

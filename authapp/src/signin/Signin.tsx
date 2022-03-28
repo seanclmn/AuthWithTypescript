@@ -7,7 +7,7 @@ function Signin(props: Props) {
     const {} = props
 
     return (
-        <p>signup</p>
+        <p>signin</p>
     )
 }
 

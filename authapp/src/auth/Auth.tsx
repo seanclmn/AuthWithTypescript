@@ -1,19 +1,23 @@
+// @ts-nocheck
+
 import React, {useEffect, useState} from 'react'
 import auth from "../Firebase"
 
-export const AuthContext = React.createContext("default user")
 
+interface AuthContextProps {
+    user: object|null
+}
 
-interface Props {}
+export const AuthContext = React.createContext<AuthContextProps|null>(null)
 
 function AuthProvider ({children}: {children: React.ReactNode}) {
 
-    const [currentUser, setCurrentUser]=useState<any>(null)
-    const [loading,setLoading]=useState(true)
+    const [currentUser, setCurrentUser]=useState<AuthContextProps|null>(null)
+    const [loading,setLoading]=useState<boolean>(true)
 
     useEffect(()=>{
-        auth.onAuthStateChanged((user: string)=>{
-            setCurrentUser(user)
+        auth.onAuthStateChanged((user: AuthContextProps)=>{
+            setCurrentUser({user})
             setLoading(false)
         })
     })

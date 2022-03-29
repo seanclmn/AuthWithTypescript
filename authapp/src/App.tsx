@@ -4,10 +4,10 @@ import {useForm} from 'react-hook-form'
 import logo from './logo.svg';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './index.css'
 import Home from './home/Home'
 import Signup from './signup/Signup'
 import Signin from './signin/Signin'
-import './App.css';
 import PrivateRoute from './privateroute/Privateroute';
 
 
